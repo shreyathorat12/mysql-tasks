@@ -1,0 +1,44 @@
+1. Create Database
+CREATE DATABASE shop_db;
+
+2. Use Database
+USE shop_db;
+
+3. Create Table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50) NOT NULL,
+    category VARCHAR(30) NOT NULL,
+    price DECIMAL(8,2) NOT NULL,
+    stock INT DEFAULT 0
+);
+
+4. Insert Data into Products Table
+INSERT INTO products(product_id, product_name, category, price, stock)
+VALUES
+(1, 'Himaliya', 'Facewash', 133.00, 10),
+(2, 'Lux', 'Soap', 79.00, 10),
+(3, 'Fog', 'Perfume', 159.60, 22),
+(4, 'Lakmie', 'Foundation', 183.80, 20),
+(5, 'Ponds', 'Powder', 103.00, 22),
+(6, 'Dove', 'Bodywash', 200.20, 12);
+
+5. Display Table Data
+SELECT * FROM products;
+
+
+6. Add New Column (Discount)
+ALTER TABLE products
+ADD discount DECIMAL(5,2);
+
+7. Remove Discount Column
+ALTER TABLE products
+DROP COLUMN discount;
+
+8. Find Lowest Price
+SELECT MIN(price) AS Lowest_Price
+FROM products;
+
+9. Find Total Stock
+SELECT SUM(stock) AS Total_Stock
+FROM products;
